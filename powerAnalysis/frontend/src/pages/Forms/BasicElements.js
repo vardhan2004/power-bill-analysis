@@ -14,7 +14,7 @@ import {
 
 import Breadcrumbs from "../../components/Common/Breadcrumb"
 
-
+const baseUrl = process.env.REACT_APP_DATABASEURL;
 const axiosInstance = axios.create();
 const CostAnalysis = () => {
   const selectedDate = new Date();
@@ -38,7 +38,7 @@ const CostAnalysis = () => {
     e.preventDefault();
     console.log('Form Data:',formData);
    
-    axiosInstance.post('http://localhost:4444/cost-entry', formData)
+    axiosInstance.post(baseUrl+'cost-entry', formData)
       .then((res)=>{
         window.location.href = "/tables-datatable";
         console.log("Succesfull");
